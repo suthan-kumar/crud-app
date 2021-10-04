@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Axios from "../api/Axios";
+import Loader from "../components/Loader";
 
 export default function Post() {
   const [post, setPost] = useState();
@@ -38,11 +39,7 @@ export default function Post() {
           <p>{post.body}</p>
         </div>
       ) : (
-        <div className="text-center mt-3">
-          <div className="spinner-border text-primary">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
+        <Loader />
       )}
       <h5 className="mt-4">Comments</h5>
       {comments ? (
@@ -56,11 +53,7 @@ export default function Post() {
           ))}
         </ul>
       ) : (
-        <div className="text-center mt-3">
-          <div className="spinner-border text-primary">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
+        <Loader />
       )}
     </div>
   );

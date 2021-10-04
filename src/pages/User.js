@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Axios from "../api/Axios";
+import Loader from "../components/Loader";
 
 export default function User() {
   const [user, setUser] = useState();
@@ -59,11 +60,7 @@ export default function User() {
           <p>Website : {user.website}</p>
         </div>
       ) : (
-        <div className="text-center mt-3">
-          <div className="spinner-border text-primary">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
+        <Loader />
       )}
       <h2>Posts</h2>
       {posts && comments ? (
@@ -79,11 +76,7 @@ export default function User() {
           ))}
         </ul>
       ) : (
-        <div className="text-center mt-3">
-          <div className="spinner-border text-primary">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
+        <Loader />
       )}
     </div>
   );
